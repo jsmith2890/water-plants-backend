@@ -4,7 +4,8 @@ class API::V1::UsersController < ApplicationController
   skip_before_action :authorized, only: [:create]
 
   def profile
-    render json: { user: UserSerializer.new(current_user) }, status: :accepted
+    options = { include: [:plants] }
+    render json: { user: UserSerializer.new(current_user, options) }, status: :accepted
   end
 
   def create
@@ -17,12 +18,6 @@ class API::V1::UsersController < ApplicationController
       render json: { error: user.errors.messages }, status: :not_acceptable
     end
   end
-
-  # def show
-  #   user = User.find_by(id: params[:id])
-
-  #   render json: UserSerializer.new(user, options)
-  # end
 
   private
 
