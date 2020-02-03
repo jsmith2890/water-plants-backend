@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :plants
       resources :users
+      post '/login', to: 'auth#create'
+      get '/profile', to: 'users#profile'
     end
   end
 end

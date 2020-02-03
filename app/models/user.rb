@@ -1,5 +1,8 @@
-class User < ApplicationRecord
-  has_many :plants
-  # validates :username, presence: true
-end
+# frozen_string_literal: true
 
+class User < ApplicationRecord
+  has_secure_password
+  has_many :plants
+
+  validates :username, uniqueness: { case_sensitive: false }
+end
