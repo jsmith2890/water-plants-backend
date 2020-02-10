@@ -10,7 +10,7 @@ class API::V1::AuthController < ApplicationController
       options = { include: [:plants] }
       render json: { user: UserSerializer.new(user, options), jwt: token }, status: :accepted
     else
-      render json: { message: 'Invalid username or password' }, status: :unauthorized
+      render json: { error: 'Invalid username or password' }, status: :unauthorized
     end
   end
 
