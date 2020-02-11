@@ -24,6 +24,13 @@ Bundler.require(*Rails.groups)
 module WaterPlants
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: %i[get post delete patch options]
+      end
+    end
     config.load_defaults 6.0
 
     config.middleware.use ActionDispatch::Cookies
