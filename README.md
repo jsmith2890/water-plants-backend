@@ -21,11 +21,3 @@ Login Credentials: username: test, password: 123 or create an account!
 
 * **Jess Smith** - *Developer* - [github](https://github.com/jsmith2890) | [linkedIn](https://www.linkedin.com/in/jessica-smith28/)
 
-
-## Setup
-
-```
-git clone https://github.com/jsmith2890/water-plants-backend.git
-bundle install
-rails 
-```
